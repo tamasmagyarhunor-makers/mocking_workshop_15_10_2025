@@ -1,5 +1,4 @@
 from lib.pastry_chef_hunor import PastryChefHunor
-from lib.apple_pie_recipe import ApplePieRecipe
 from unittest.mock import Mock
 
 def test_pastry_chef_hunor_instantiates():
@@ -10,36 +9,10 @@ def test_pastry_chef_hunor_instantiates():
 
 def test_pastry_chef_hunor_can_bake_apple_pie():
     hunor = PastryChefHunor()
-    recipe = ApplePieRecipe()
 
-    assert hunor.bake(recipe) == "I'm Hunor and I baked an Apple Pie with apple, flour, sugar!"
-
-
+    recipe = Mock()
+    recipe.list_ingredients.return_value = 'apple, flour, sugar, lemon zest'
 
 
+    assert hunor.bake(recipe) == "I'm Hunor and I baked an Apple Pie with apple, flour, sugar, lemon zest!"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # mock_object = Mock
-    # mock_object.function_call.return_value = 'whatever I want'
